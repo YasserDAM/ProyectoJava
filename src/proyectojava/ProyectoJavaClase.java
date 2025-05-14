@@ -128,7 +128,7 @@ public class ProyectoJavaClase {
         
         while (true) {
             
-            VentanaLogin ventana_login = new VentanaLogin();
+            Ventana ventana_login = new Ventana();
             ventana_login.setVisible(true);
             System.out.println("\n=== MENU PRINCIPAL ===");
             System.out.println("1. Iniciar sesion");
