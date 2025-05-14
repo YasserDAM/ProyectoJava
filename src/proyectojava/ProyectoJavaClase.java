@@ -1,9 +1,13 @@
 package proyectojava;
 
+import java.awt.CardLayout;
+import java.awt.Panel;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 public class ProyectoJavaClase {
 
@@ -123,20 +127,26 @@ public class ProyectoJavaClase {
             return;
         }
         
-        
         Cliente clienteActivo = null;
         
         while (true) {
             
-            Ventana ventana_login = new Ventana();
-            ventana_login.setVisible(true);
+            SwingUtilities.invokeLater(() -> {
+                JFrame frame = new JFrame("Trabajo Programación");
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setContentPane(new jContenedor()); // Tu panel principal
+                frame.pack(); // Ajusta al tamaño del contenido
+                frame.setLocationRelativeTo(null); // Centra la ventana
+                frame.setVisible(true);
+            });
+            
             System.out.println("\n=== MENU PRINCIPAL ===");
             System.out.println("1. Iniciar sesion");
             System.out.println("2. Registrarse");
             System.out.println("3. Salir");
             System.out.print("Seleccion: ");
             String opcion = sc.nextLine();
-
+            
             switch (opcion) {
                 case "1":
                     System.out.print("Nombre: ");
